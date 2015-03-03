@@ -1,0 +1,7 @@
+
+export(gazepath)
+
+S3method(plot, gazepath)
+S3method(summary, gazepath)
+S3method(print, gazepath)
+

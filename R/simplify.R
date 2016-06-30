@@ -1,5 +1,5 @@
 simplify <-
-function(classification, x, y, Hz, D, width_px, width_mm){
+function(classification, x, y, Hz, D, width_px, width_mm, extra, extra_var){
   class <- rle(classification)
   simple <- data.frame(class$values, class$lengths, 
                        c(1, cumsum(class$lengths) + 1)[-(length(class$values) + 1)], 
@@ -24,6 +24,12 @@ function(classification, x, y, Hz, D, width_px, width_mm){
                            c(1, cumsum(class$lengths * (1000/Hz)) + 1)[-(length(class$values) + 1)], 
                            cumsum(class$lengths * (1000/Hz)), x_start, y_start, x_end, y_end, mean_x, mean_y, POGvarSacAmp)
       names(simple)[1:4] <- c('Value', 'Dur', 'Start', 'End')
+      if(!is.null(extra_var)){
+        for(i in 1:length(extra_var)){
+          simple <- data.frame(simple, extra[i])
+          names(simple)[dim(simple)[2]] <- extra_var[i]
+        }
+      }
     }
   # Remove NA values
   if(length(which(is.na(simple[,1]))) != 0){

@@ -27,6 +27,9 @@ function(possible.fix, Hz, plot = FALSE, default = 100){
     lines(pred ~ exp(nsd), lwd = 6, col = 2)
   }
   ## Set a maximal value to overcome smoothing problems
-  if(thres_dur > 250) thres_dur <- 250
+  if(thres_dur > 200){
+    thres_dur <- default
+    warning('The duration threshold is estimated to be very high (> 200ms), therefore the default threshold is used (default = 100ms)')
+  } 
   return(thres_dur)
 }

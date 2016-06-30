@@ -1,7 +1,20 @@
 
-export(gazepath)
+export(gazepath, GUI)
 
 S3method(plot, gazepath)
 S3method(summary, gazepath)
 S3method(print, gazepath)
+S3method(head, gazepath)
+S3method(tail, gazepath)
+
+importFrom("grDevices", "chull")
+importFrom("graphics", "axis", "hist", "layout", "legend", "lines", "mtext", "plot", "points", "polygon", "rect", "segments")
+importFrom("stats", "dist", "loess", "median", "predict")
+importFrom("utils", "head", "tail")
+importFrom("zoo", "na.approx")
+importFrom("scales", "alpha")
+importFrom("SDMTools", "pnt.in.poly")
+importFrom("jpeg", "readJPEG", "writeJPEG")
+
+import(shiny)
 

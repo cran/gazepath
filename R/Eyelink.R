@@ -1,7 +1,7 @@
 Eyelink <-
 function(X, Y, D, height_mm, width_mm, height_px, width_px, Hz, defliction = .1, thres_dur = 100){
   speed <- Speed_Deg(X, Y, D, height_mm, width_mm, height_px, width_px, Hz)
-  accel <- speed^2
+  accel <- c(.001, diff(speed) / (1 / Hz))
   distance <- c(.001, sqrt(diff(X)^2 + diff(Y)^2))
   #transform .1 deg to number of pixels
   offset <- tan((defliction / 2) * pi/180) * D * (1 / (height_mm / height_px)) * 2

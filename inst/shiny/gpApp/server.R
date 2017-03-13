@@ -178,29 +178,29 @@ shinyServer(function(input, output) {
     if(input$out == 'All fixations and saccades'){
       df <- numeric()
       for(i in 1:length(nameVar())){
-        df <- rbind(df, cbind(summary(gazepathInput()[[i]]), nameVar()[i]))
+        df <- rbind(df, cbind(nameVar()[i], summary(gazepathInput()[[i]])))
       }
     } else {
       if(input$out == 'Only complete fixations and saccades'){
         df <- numeric()
         for(i in 1:length(nameVar())){
-          df <- rbind(df, cbind(summary(gazepathInput()[[i]], complete_only = TRUE), nameVar()[i]))
+          df <- rbind(df, cbind(nameVar()[i], summary(gazepathInput()[[i]], complete_only = TRUE)))
         }
       } else {
         if(input$out == 'Fixations only'){
           df <- numeric()
           for(i in 1:length(nameVar())){
-            df <- rbind(df, cbind(summary(gazepathInput()[[i]], fixations_only = TRUE), nameVar()[i]))
+            df <- rbind(df, cbind(nameVar()[i], summary(gazepathInput()[[i]], fixations_only = TRUE)))
           } 
         } else {
           df <- numeric()
           for(i in 1:length(nameVar())){
-            df <- rbind(df, cbind(summary(gazepathInput()[[i]], complete_only = TRUE, fixations_only = TRUE), nameVar()[i]))
+            df <- rbind(df, cbind(nameVar()[i], summary(gazepathInput()[[i]], complete_only = TRUE, fixations_only = TRUE)))
           }
         }
       }
     }
-    names(df)[dim(df)[2]] <- 'Participant'
+    names(df)[1] <- 'Participant'
     return(df)
   })
   

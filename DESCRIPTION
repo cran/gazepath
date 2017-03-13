@@ -1,8 +1,8 @@
 Package: gazepath
 Type: Package
 Title: Parse Eye-Tracking Data into Fixations
-Version: 1.1
-Date: 2016-06-06
+Version: 1.2
+Date: 2017-03-01
 Author: Daan van Renswoude & Ingmar Visser
 Maintainer: Daan van Renswoude <D.R.vanRenswoude@uva.nl>
 Description: Eye-tracking data must be transformed into fixations and saccades before it can be analyzed. This package provides a non-parametric speed-based approach to do this on a trial basis. The method is especially useful when there are large differences in data quality, as the thresholds are adjusted accordingly. The same pre-processing procedure can be applied to all participants, while accounting for individual differences in data quality.
@@ -10,9 +10,9 @@ License: GPL-2
 Imports: SDMTools, jpeg, zoo, scales, shiny
 Repository: CRAN
 Repository/R-Forge/Project: gazepatterns
-Repository/R-Forge/Revision: 98
-Repository/R-Forge/DateTimeStamp: 2016-06-30 10:47:59
-Date/Publication: 2016-06-30 18:16:15
+Repository/R-Forge/Revision: 108
+Repository/R-Forge/DateTimeStamp: 2017-03-13 12:58:43
+Date/Publication: 2017-03-13 17:18:55
 NeedsCompilation: no
-Packaged: 2016-06-30 11:05:21 UTC; rforge
+Packaged: 2017-03-13 13:05:22 UTC; rforge
 Depends: R (>= 2.10)

@@ -70,7 +70,7 @@ function(data, x1, y1, x2 = NULL, y2 = NULL, d1, d2 = NULL, trial, height_px, he
   final <- 'Please insert a correct method'
   s <- NA
   
-  if(method == 'Eyelink'){
+  if(method == 'velocity'){
     final <- list()
     for(i in 1:length(unique(data[,trial]))){
       ## Boundary check
@@ -80,7 +80,7 @@ function(data, x1, y1, x2 = NULL, y2 = NULL, d1, d2 = NULL, trial, height_px, he
     } 
   }
   
-  if(method == 'Tobii'){
+  if(method == 'dispersion'){
     final <- list()
     for(i in 1:length(unique(data[,trial]))){
       ## Boundary check

@@ -114,9 +114,9 @@ shinyUI(navbarPage('Gazepath',
                                        titlePanel('Visualize stimuli'),
                                        sidebarLayout(
                                          sidebarPanel(
-                                           fileInput('image', 'Select the stimulus',
+                                           fileInput('image', 'Select the stimulus (only jpg format supported at this moment)',
                                                      multiple = FALSE,
-                                                     accept=c('image/png', 'image/jpg')),
+                                                     accept='image/jpg'),
                                            uiOutput('plotVariables'),
                                            uiOutput('ppiVariables'),
                                            sliderInput('p_h', 'Height of plot in pixel', min = 600, max = 3000, value = 600, step = 100),

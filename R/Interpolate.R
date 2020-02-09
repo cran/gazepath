@@ -1,7 +1,7 @@
 ## Interpolation function
 Interpolate <- function(X, Y, D, height_mm, width_mm, height_px, width_px, res_x = res_x, res_y = res_y, Hz = Hz, in_thres = in_thres, thres_dur = thres_dur){
   
-  s <- Speed(X, Y, D, height_mm, width_mm, height_px, width_px, res_x = 1280, res_y = 1024, Hz)
+  s <- Speed(X, Y, D, height_mm, width_mm, height_px, width_px, res_x = res_x, res_y = res_y, Hz)
   s <- ifelse(s > 1000, NA, s)
   if(length(lomax(s)) < 10){
     return(list('No Return', 'No Return','No Return','No Return','No Return','No Return','No Return','No Return'))
@@ -55,7 +55,7 @@ Interpolate <- function(X, Y, D, height_mm, width_mm, height_px, width_px, res_x
     while(dimd_new != dim(d)[1]){
       dimd_new <- dim(d)[1]
       ## Combine fixations
-      classif <- comhull(d, classification, dat_x, dat_y, in_thres, Hz)
+      classif <- comhull(d, classification, dat_x, dat_y, in_thres, Hz, M = sqrt(M)/10, mean(dat_d, na.rm = T), res_x = res_x, width_mm = width_mm)
       
       CL <- rle(classif[[1]])
       classification <- classif[[1]]
@@ -86,7 +86,7 @@ Interpolate <- function(X, Y, D, height_mm, width_mm, height_px, width_px, res_x
     d <- data.frame(CL$value, CL$length, c(1, cumsum(CL$length)[-length(CL$length)] + 1), cumsum(CL$length), POG, mean_x, mean_y)
     names(d)[1:4] <- c('index', 'dur', 'start', 'end')
     
-    classification <- comhull(d, classification, dat_x, dat_y, in_thres, Hz)
+    classification <- comhull(d, classification, dat_x, dat_y, in_thres, Hz,  M = sqrt(M)/10, D = mean(dat_d, na.rm = T), res_x = res_x, width_mm = width_mm)
     
     clas <- classification[[1]]
     CL <- rle(clas)

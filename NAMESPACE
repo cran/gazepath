@@ -13,7 +13,7 @@ importFrom("stats", "dist", "loess", "median", "predict")
 importFrom("utils", "head", "tail")
 importFrom("zoo", "na.approx")
 importFrom("scales", "alpha")
-importFrom("SDMTools", "pnt.in.poly")
+importFrom("sp", "point.in.polygon")
 importFrom("jpeg", "readJPEG", "writeJPEG")
 
 import(shiny)
